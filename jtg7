@@ -2,12 +2,16 @@
 
 # ASCII Art
 ascii_art="
-    __  __          __           ____           __        ____         
-   / / / /_  ______/ /________ _/  _/___  _____/ /_____ _/ / /__  _____
-  / /_/ / / / / __  / ___/ __ `// // __ \/ ___/ __/ __ `/ / / _ \/ ___/
- / __  / /_/ / /_/ / /  / /_/ // // / / (__  ) /_/ /_/ / / /  __/ /    
-/_/ /_/\__, /\__,_/_/   \__,_/___/_/ /_/____/\__/\__,_/_/_/\___/_/     
-      /____/                                                           
+
+                       _ _     _                 
+                      | (_)   | |                
+                      | |_ ___| |__  _ __  _   _ 
+                  _   | | / __| '_ \| '_ \| | | |
+                 | |__| | \__ \ | | | | | | |_| |
+                  \____/|_|___/_| |_|_| |_|\__,_|
+                                                 
+                                                 
+     
 "
 
 # Colors
@@ -17,6 +21,8 @@ BLUE='\033[0;34m'
 CYAN='\033[0;36m'
 YELLOW='\033[0;33m'
 NC='\033[0m' # No Color
+
+echo -e "${CYAN}$ascii_art${NC}"
 
 # Function to display messages
 echo_message() {
@@ -45,7 +51,7 @@ echo_message "* Installed Dependencies"
 echo_message "* Installing Files"
 
 # Create directory, clone repository, and install files
-mkdir -p skyport
+mkdir -p panel5
 cd panel5 || { echo_message "Failed to change directory to skyport"; exit 1; }
 git clone https://github.com/achul123/panel5
 cd panel5 || { echo_message "Failed to change directory to panel"; exit 1; }
