@@ -15,8 +15,27 @@ ascii_art="
                                                  
                                   
 "
-}
-  # panel
+
+# Colors
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+BLUE='\033[0;34m'
+CYAN='\033[0;36m'
+YELLOW='\033[0;33m'
+NC='\033[0m' # No Color
+
+# Clear the screen
+clear
+# Check if the script is run as root
+if [ "$EUID" -ne 0 ]; then
+  echo -e "${RED}Please run this script as root.${NC}"
+  exit 1
+fi
+
+echo -e "${CYAN}$ascii_art${NC}"
+
+
+    # panel
     panel() {
     sudo apt update
     sudo apt install -y nodejs git
@@ -25,16 +44,18 @@ ascii_art="
     npm install
     npm run seed
     npm run createUser
-    node .
+    node .  
+
 }
-  # node
+    # node
     node () {
     git clone https://github.com/achul123/skyportd
     cd skyportd
     npm install
 
 }
- # Main Menu
+
+# Main Menu
 echo -e "${CYAN}Select an option:${NC}"
 echo -e "1. Install Panel "
 echo -e "2. install Node "
@@ -56,4 +77,4 @@ case $choice in
         echo -e "${RED}Invalid option. Please select 1 or 2.${NC}"
         exit 1
         ;;
-esac    
+esac  
