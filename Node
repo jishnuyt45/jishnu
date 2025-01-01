@@ -1,35 +1,11 @@
 #!/bin/bash
 
-# ASCII Art
-ascii_art="
-
-                       _ _     _                 
-                      | (_)   | |                
-                      | |_ ___| |__  _ __  _   _ 
-                  _   | | / __| '_ \| '_ \| | | |
-                 | |__| | \__ \ | | | | | | |_| |
-                  \____/|_|___/_| |_|_| |_|\__,_|
-                                                 
-                                                 
-     
-"
-
-# Colors
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-BLUE='\033[0;34m'
-CYAN='\033[0;36m'
-YELLOW='\033[0;33m'
-NC='\033[0m' # No Color
-
-echo -e "${CYAN}$ascii_art${NC}"
-
 # Function to display messages
 echo_message() {
     echo -e "\033[1;32m$1\033[0m"
 }
 
-echo_message " Do you install skyport Node (yes/no)"
+echo_message "Do you want to install the panel? (yes/no)"
 read answer
 
 if [ "$answer" != "yes" ]; then
@@ -37,13 +13,7 @@ if [ "$answer" != "yes" ]; then
     exit 0
 fi
 
-echo_message "* Installed Dependencies"
-
-echo_message "* Installing Files"
-
-# Create directory, clone repository, and install files
-mkdir -p node
-cd node || { echo_message "Failed to change directory to skyport"; exit 1; }
+# node
 git clone https://github.com/achul123/skyportd
-cd node || { echo_message "Failed to change directory to panel"; exit 1; }
+cd skyportd
 npm install
